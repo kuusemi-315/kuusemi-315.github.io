@@ -1,0 +1,178 @@
+*{
+    padding: 0;
+    margin: 0;
+
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden; /* 横方向のスクロールを無効化 */
+}
+
+h1{
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+h2{
+    font-size: 36px;
+    margin-bottom: 20px;
+    
+}
+
+h3{
+    font-size: 30px;
+    margin-bottom: 20px;
+    
+}
+
+h4{
+    font-size: 24px;
+    margin-bottom: 20px;
+    
+}
+.container{
+    width: 90%;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+
+/* ページ全体 */
+body {
+  margin: 0;
+  font-family: "游ゴシック", "Yu Gothic", sans-serif;
+  font-size: 1rem;
+  background-color: #fff;
+  color: #000;
+}
+
+
+
+/* Support h2タイトル */
+.container header h2 {
+  position: relative;
+  display: inline-block;   /* 下線を文字幅に合わせる */
+  padding-bottom: 10px;
+  font-family: "游ゴシック", "Yu Gothic", sans-serif;
+  font-size: 36px;
+  font-weight: bold;
+  text-align: left;
+  margin: 40px 0 20px;     /* 上下の余白 */
+  width: auto;             
+  max-width: 100%;
+}
+
+/* 下線 */
+.container header h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #e38cfe;
+  border-radius: 2px;
+}
+
+
+
+main {
+    background-color: white;
+    padding: 30px;
+    padding-top: 0;
+    text-align: left;
+}
+
+/* FAQ h3タイトル */
+h3 {
+  position: relative;
+  width: 1500px;          /* 横幅を固定 */
+  max-width: 100%;       /* 画面幅が狭いときは自動で縮む */
+  padding-bottom: 10px;  /* 線との余白 */
+  font-family: "游ゴシック", "Yu Gothic", sans-serif;
+  font-size: 32px;
+  text-align: left;      /* 左寄せ */
+}
+
+/* 文字下 色付き下線 */
+h3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;             /* 文字の下に線を表示 */
+  width: 100%;           /* h2の幅に合わせて線を引く */
+  height: 4px;
+  background-color: #e38cfe;
+}
+
+h4 {
+  position: relative;
+  padding-left: 15px;  /* 縦線の分だけ内側に余白を追加 */
+  width: 1500px;          /* 横幅を固定 */
+  max-width: 100%;       /* 画面幅が狭いときは自動で縮む */
+  padding-bottom: 0px;  /* 線との余白 */
+  font-family: "游ゴシック", "Yu Gothic", sans-serif;
+  text-align: left;      /* 左寄せ */
+}
+
+/* 左端の縦線 */
+h4::before {
+  content: "";
+  position: absolute;
+  left: 0;           /* H4の左端に配置 */
+  top: 0;
+  height: 100%;      /* H4の高さに合わせる */
+  width: 4px;        /* 縦線の太さ */
+  background-color: #e38cfe; /* 線の色 */
+  border-radius: 2px; /* 丸みを付けたい場合 */
+}
+
+p {
+  position: relative;
+  padding-left: 15px;  /* 縦線の分だけ内側に余白を追加 */
+  width: 1500px;          /* 横幅を固定 */
+  max-width: 100%;       /* 画面幅が狭いときは自動で縮む */
+  margin-top: 30px;
+  padding-bottom: 0px;  /* 線との余白 */
+  font-family: "游ゴシック", "Yu Gothic", sans-serif;
+  font-size: 20px;
+  font-weight: 550;
+  text-align: left;      /* 左寄せ */
+}
+
+
+.pp-link {
+  position: relative;
+  color: #e38cfe;         /* 下線と同系色で統一 */
+  font-weight: 500;       /* 少し強調 */
+  text-decoration: none;  /* デフォルトの下線を消す */
+  transition: color 0.2s; /* ホバー時の色変化 */
+}
+
+/* 下線アニメーション（中央から左右に広がる） */
+.pp-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -2px;            /* 文字の少し下に線を引く */
+  width: 0;
+  height: 1px;
+  background-color: #e38cfe;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.pp-link:hover::after {
+  width: 100%; /* 中央から両端に伸びる */
+}
+
+.VehicleStructure img {
+  display: block;          /* ブロック要素にして中央寄せ可能に */
+  width: 90%;              /* コンテナの90%の横幅で表示 */
+  max-width: 1500px;       /* コンテナの上限と揃える（任意） */
+  height: auto;            /* 縦横比維持 */
+  margin: 20px auto;       /* 上下20px、左右自動で中央寄せ */
+  border-radius: 8px;      /* （任意）角を少し丸く */
+}
