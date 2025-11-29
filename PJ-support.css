@@ -1,0 +1,189 @@
+.container header h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #ff8800;
+  border-radius: 2px;
+}
+
+
+/* FAQ h3タイトル */
+h3 {
+  position: relative;
+  width: 1500px;          /* 横幅を固定 */
+  max-width: 100%;       /* 画面幅が狭いときは自動で縮む */
+  padding-bottom: 10px;  /* 線との余白 */
+  font-family: "游ゴシック", "Yu Gothic", sans-serif;
+  font-size: 32px;
+  text-align: left;      /* 左寄せ */
+}
+
+/* 文字下 色付き下線 */
+h3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;             /* 文字の下に線を表示 */
+  width: 100%;           /* h2の幅に合わせて線を引く */
+  height: 4px;
+  background-color: #ff8800;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.key-container {
+    width: 90%;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+
+
+
+
+/* 上部と下部の説明文 */
+.key-description-top,
+.key-description-bottom {
+    font-size: 1.25rem;
+    color: #000000;
+    line-height: 1.6;
+    margin-bottom: 30px; /* 説明文とリストの間の余白 */
+}
+.download-description-bottom {
+    margin-top: 30px; /* リストと説明文の間の余白 */
+    margin-bottom: 0; /* 下部の説明文の直後には余白なし */
+}
+
+/* ダウンロードリスト */
+.key-list {
+    text-align: left; /* リストの項目は左寄せ */
+    list-style: none; /* デフォルトのリストスタイルを削除 */
+    padding: 0;
+    margin: 0;
+	
+}
+
+.key-list-item,.key-list-item {
+    display: flex; /* 番号とテキストを横並びにする */
+    align-items: center; /* 垂直方向中央寄せ */
+    margin-bottom: 15px; /* 各項目の下余白 */
+    font-size: 1.1rem;
+    color: #000000; /* オレンジ色 */
+}
+
+.key-number {
+    display: inline-block; /* 番号を Flex アイテムとして扱う */
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: auto; /* 番号のボックスの幅 */
+    height: 30px; /* 番号のボックスの高さ */
+    line-height: 30px;
+    min-width: 30px;
+    padding: 0.5rem;
+    background-color: #000000; /* オレンジ背景 */
+    color: white; /* 白い文字 */
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-right: 0; /* 番号とテキストの間の余白 */
+    flex-shrink: 0; /* 番号の幅が縮まないように */
+}
+
+.start-number {
+    display: inline-flex; /* 番号を Flex アイテムとして扱う */
+    justify-content: center;
+    align-items: center;
+    width: 30px; /* 番号のボックスの幅 */
+    height: 30px; /* 番号のボックスの高さ */
+    background-color: #ff8800; /* オレンジ背景 */
+    color: white; /* 白い文字 */
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-right: 15px; /* 番号とテキストの間の余白 */
+    flex-shrink: 0; /* 番号の幅が縮まないように */
+}
+
+.key-item-text {
+    /* 必要に応じて、テキストが折り返すように設定 */
+    overflow-wrap: break-word; 
+    word-break: break-word;
+    color: #000000; /* テキストの色を黒に */
+    margin-left: 15px;
+}
+
+
+.p-key {
+  position: relative;
+  color: #000000;         /* 下線と同系色で統一 */
+  font-weight: bold;       /* 少し強調 */
+  text-decoration: none;  /* デフォルトの下線を消す */
+}
+
+
+.b4-315 {
+  font-size: 1.5rem;
+  position: relative;
+  color: #ffffff;
+  background-color: #ff8800;
+  font-weight: bold; 
+}
+
+.speedlimit{
+    width: 100%;
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+}
+
+
+
+
+
+
+
+	.download-section-wrapper {
+        padding: 40px 15px;
+    }
+
+    .download-container {
+        padding: 30px 20px;
+    }
+
+    .download-title {
+        font-size: 2rem;
+    }
+
+    .download-description-top,
+    .download-description-bottom {
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+    }
+    .download-description-bottom {
+        margin-top: 20px;
+    }
+
+    .download-list-item {
+        font-size: 1rem;
+    }
+
+    .download-number {
+        width: 25px;
+        height: 25px;
+        font-size: 0.9rem;
+        margin-right: 10px;
+    }

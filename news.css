@@ -1,0 +1,78 @@
+body {
+  margin: 0;
+  font-family: "游ゴシック", "Yu Gothic", sans-serif;
+  font-size: 1rem;
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden; /* 横方向のスクロールを無効化 */
+}
+
+/* お知らせリスト */
+.news-list { 
+  padding: 0; 
+  margin: 0; 
+  list-style: none; 
+  border-top: 1px solid #a0a0a0; /* 最初の項目の上にも線を追加 */
+}
+
+/* 各項目 */
+.news-item { 
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 1rem; 
+  padding: 15px 20px; 
+  border-bottom: 1px solid #a0a0a0; /* 各項目の下に区切り線 */
+}
+
+#news-container {
+  padding-bottom: 3rem; /* 下方向に確実に余白 */
+  overflow: hidden;      /* フロートや flex の影響を吸収 */
+}
+
+/* 日付部分 */
+.news-date { 
+  color: #414141; 
+  min-width: 100px; 
+  flex-shrink: 0; 
+  font-weight: 500; 
+}
+
+/* テキスト部分 */
+.news-text { 
+  color: #000; 
+  flex: 1; 
+  font-weight: bold; 
+  line-height: 1.5;
+}
+
+
+
+/* News h2タイトル */
+.container header h2 {
+  position: relative;
+  display: inline-block;   /* 下線を文字幅に合わせる */
+  padding-bottom: 10px;
+  font-family: "游ゴシック", "Yu Gothic", sans-serif;
+  font-size: 36px;
+  font-weight: bold;
+  text-align: left;
+  margin: 40px 0 20px;     /* 上下の余白 */
+  width: auto;             
+  max-width: 100%;
+}
+
+/* 下線 */
+.container header h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #e38cfe;
+  border-radius: 2px;
+}
+
+

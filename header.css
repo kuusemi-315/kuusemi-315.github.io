@@ -1,0 +1,154 @@
+header{
+    background-color: white;
+    padding: 30px;
+    text-align: center;
+}
+ 
+.site-header {
+  height: 80px;  
+  position: relative;
+  background-color: white;
+}
+
+.site-header a {
+  font-size: 1rem; /* 文字サイズ固定 */
+  font-weight: lighter;
+  margin: 0;
+}
+
+/* ヘッダーメニュー 基本黒 */
+.nav__wrapper a{
+    color: black;
+}
+/* ヘッダーメニュー PJ橙 */
+.nav__item.PJ a {
+    color: rgb(254, 135, 33);
+}
+/* ヘッダーメニュー 装飾無し */
+.nav__wrapper {
+    list-style: none;
+    font-family: "游ゴシック体", "Yu Gothic", "游ゴシック", "Yu Gothic UI", sans-serif;
+}
+
+/* ヘッダーメニュー 基本黒 下線アニメーション */
+.nav__wrapper a {
+  position: relative;
+  display: inline-block; /* インライン要素にして文字幅に合わせる */
+  color: black;
+  text-decoration: none;
+  line-height: 1; /* 下線位置を文字の近くに */
+}
+
+/* ヘッダーメニュー PJ橙 下線アニメーション */
+.nav__item.PJ a {
+  position: relative;
+  display: inline-block; /* インライン要素にして文字幅に合わせる */
+  color: rgb(254, 135, 33);
+  text-decoration: none;
+  line-height: 1; /* 下線位置を文字の近くに */
+}
+
+/* 線アニメーション */
+.nav__wrapper a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0px; /* テキストから少し下*/
+  width: 0;
+  height: 2px;
+  background-color: currentColor;
+  transition: width 0.3s ease, left 0.3s ease;
+  transform: translateX(-50%);
+}
+
+/* ホバー時に中央から左右に伸びる */
+.nav__wrapper a:hover::after {
+  width: 100%;
+}
+
+.nav__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* 各項目 */
+.nav__item {
+  padding: 0 1.5rem;
+  border-right: 1px solid #ccc; /* 仕切り線 */
+}
+
+/* 最後の項目だけ仕切りを消す */
+.nav__item:last-child {
+  border-right: none;
+}
+/* リンク文字 */
+.nav__item a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+}
+
+
+
+
+.site-header__wrapper {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+  @media (min-width: 850px) {
+    .site-header__wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 0;
+      padding-bottom: 0; 
+    }
+}
+@media (min-width: 850px) {
+  .nav__wrapper {
+    display: flex;
+    } 
+}
+
+ 
+@media (max-width: 849px) {
+  .nav__wrapper {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    z-index: -1;
+    background-color: white;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+    }
+    .nav__wrapper.active {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0);
+    }
+}
+ 
+.nav__item a {
+    display: block;
+    padding: 1.5rem 1rem;
+    text-decoration: none;
+}
+ 
+.nav__toggle {
+  display: none; }
+  @media (max-width: 849px) {
+    .nav__toggle {
+      display: block;
+      position: absolute;
+      right: 1rem;
+      top: 1rem; } }
+
+
+/* 　　　　　ヘッダー ここまで　　　　　 */
