@@ -37,7 +37,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NS23Q8CD"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
- 
+
     <div class="loader">
         <div class="year-month">2022.09</div>
         <div class="Ready-text">Ready!</div>
@@ -121,7 +121,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             2022年3月5日、約22年ぶりに登場した期待の新型車両。<br>
                             情報を詰め込んだグラスコックピットは、<br>
                             先進的であると同時に、車両の精密さを感じさせる。<br> 
-                            TASC機能やワンマン機能(3000番台)も備えており、今後の活躍が期待される。             
+                            TASC機能やワンマン機能(3000番台)も備えており、今後の活躍が期待される。             
                         </p>
                     </div>
                 </div>
@@ -1697,6 +1697,30 @@ okButton.addEventListener('click', () => {
     // 任意: ダウンロード開始の通知
     // alert("インストーラーのダウンロードを開始します。");
 });
+
+
+// OKボタンの処理 (承諾後、EXEファイルをダウンロード)
+okButton.addEventListener('click', () => {
+    // 1. ポップアップを閉じる
+    popupOverlay.style.display = 'none';
+      
+    // 2. または新しいタブで開く場合:
+    window.open(NEXT_PAGE_URL, '_blank');
+    
+    // 3. ★EXEファイルをダウンロード開始★
+    // GTMへのデータ送信をまず行う
+    window.dataLayer = window.dataLayer || []; // GTMが未初期化の場合の対策
+    window.dataLayer.push({
+        'event': 'download_started', // GTMが識別するイベント名
+        'download_file': DOWNLOAD_URL // ファイル名をパラメータとして送信
+    });
+    
+    window.location.href = DOWNLOAD_URL;
+    
+    // 任意: ダウンロード開始の通知
+    // alert("インストーラーのダウンロードを開始します。");
+});
+
 
 // キャンセルボタンの処理 (閉じる)
 cancelButton.addEventListener('click', () => {
