@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>kuusemi</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="news.css">
+</head>
+
+
+<body>
+  <!-- ヘッダー読み込み領域 -->
+  <div id="header-container"></div>
+
+  <script>
+    fetch("header.html")
+      .then(res => res.text())
+      .then(html => document.getElementById("header-container").innerHTML = html)
+      .catch(err => console.error("ヘッダー読み込みエラー:", err));
+  </script>
+
+  <main>
+    <section class="Top">
+      <figure>
+        <img src="images/top.png" alt="トップ画像">
+      </figure>
+      <div class="main-visual">
+        <div class="main-overlay">
+          <h2>BVE 中央西線 Project</h2>
+          <p>BVE Trainsimにて、中央西線(名古屋～多治見)を公開中！<br>Twitterにて進捗を随時更新中。</p>
+          <a href="project-chuo.html" class="main-btn">詳しく見る</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="News">
+      <div class="container">
+        <h2>News</h2>
+        <p>直近8件のお知らせを表示しています。過去のお知らせは
+            <a href="news.html" class="news-link">こちら</a>
+        </p>
+        <ul id="news-list" class="news-list"></ul>
+      </div>
+    </section>
+
+
+<script>
+fetch("news-content.html")
+  .then(res => res.text())
+  .then(html => {
+    const temp = document.createElement("div");
+    temp.innerHTML = html;
+
+    // news-item 要素をすべて取得
+    const items = temp.querySelectorAll(".news-item");
+
+    // 上位8件を index.html に追加
+    const list = document.getElementById("news-list");
+    items.forEach((item, i) => {
+      if (i < 8) list.appendChild(item.cloneNode(true));
+    });
+  })
+  .catch(err => console.error("News読み込みエラー:", err));
+</script>
+
+
+<!-- フッター読み込み領域 -->
+<div id="footer-container"></div>
+
+<script>
+  fetch("footer.html")
+    .then(res => res.text())
+    .then(html => document.getElementById("footer-container").innerHTML = html)
+    .catch(err => console.error("フッター読み込みエラー:", err));
+</script>
+</body>
+</html>
