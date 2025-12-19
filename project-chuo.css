@@ -25,18 +25,25 @@ body, html {
 .year-month {
     font-size: 6rem;
     font-weight: 200;
+    margin: 20px;
 }
 .year-month.done { 
     color: #ff8800; 
+    padding: 20px;
 }
 
 .Ready-text {
     font-size: 10rem;
     font-weight: 200;
     color: #ff8800;
-    display: none;
-    opacity: 0;
+
     position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    opacity: 0;
+    padding: 20px;
 }
 @keyframes flicker {
     0%, 20%, 40% { 
@@ -60,6 +67,7 @@ body, html {
 .main-content { 
     /* 他の絶対配置要素の基準とする */
     position: relative; 
+    width: 100%;
     display: none; 
     opacity: 0; 
     transition: opacity 1s ease; 
@@ -73,6 +81,7 @@ body, html {
 /* ===== 背景動画 ===== */
 .video-section {
     position: relative;
+    width: 100%;
     height: 100vh;
     overflow: hidden;
 }
@@ -80,8 +89,8 @@ body, html {
     position: fixed;
     top: 50%;
     left: 50%;
-    width: 110%;
-    height: 110%;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     transform: translate(-50%, -50%);
     z-index: -5;
@@ -96,13 +105,14 @@ body, html {
     transform: translate(-50%, -50%);
     max-width: 100%; 
     width: 80%; 
-    min-width: 700px; 
+    min-width: 400px; 
     height: auto;
     pointer-events: none;
     z-index: -1;
     transition: opacity 0.5s ease, filter 0.5s ease;
     opacity: 1;
     filter: blur(0px);
+    margin: 20px;
 }
 
 /* ===== コンテンツ ===== */
@@ -225,6 +235,17 @@ body, html {
 }
 
 
+.text4 p {
+    white-space: nowrap;      /* 改行しない */
+    max-width: 100%;
+    overflow: hidden;         /* 念のため */
+    
+    font-size: clamp(2rem, 8vw, 7rem);
+    /* 最小 2rem / 画面依存 8vw / 最大 7rem */
+
+    line-height: 1.1;
+}
+
 
 
 /* ----------------------------------- */
@@ -236,6 +257,7 @@ body, html {
     left: 50%;
     transform: translateX(-50%);
     width: 20%; 
+    min-width: 200px;
     height: 0;
     background-color: #ff8800; 
     z-index: 2;
@@ -266,35 +288,40 @@ body, html {
 }
 
 
-/* --- 左側の画像コンテナ --- */
-.new-story-image-wrapper {
-    flex: 0 0 45%; /* 親コンテナの半分を占める */
-    position: relative;
-    overflow: hidden; /* 画像のはみ出しを隠す */
 
-    /* 初期状態: 中央から少し右 (左へスライドインするため) */
+
+.new-story-image-wrapper {
+    flex: 0 0 45%;
+    position: relative;
+    overflow: visible;
+
+    /* アニメーション用 */
     transform: translateX(30%);
-    opacity: 0; /* 初期は透明 */
-    transition: transform 1.0s cubic-bezier(0.25, 1, 0.5, 1), opacity 1.0s ease-out; /* なめらかなアニメーション */
+    opacity: 0;
+    transition: 
+        transform 1.0s cubic-bezier(0.25, 1, 0.5, 1),
+        opacity 1.0s ease-out;
 }
 
-/* 1:1のアスペクト比を維持するためのトリック */
 .aspect-ratio-box {
-    padding-top: 100%; /* 高さを幅の100%にする (1:1) */
-    display: block;
+    position: relative;
+    width: 100%;
+    padding-top: 90%; /* ← 縦を横の90%に */
 }
 
 .new-story-image {
     position: absolute;
     top: 0;
     left: 0;
+
     width: 100%;
     height: 100%;
-    object-fit: cover; /* 画像をトリミングして1:1のボックスに収める */
+
+    object-fit: contain; /* 横を絶対に切らない */
     display: block;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* 画像に影 */
-    border-radius: 10px; /* 角丸 */
 }
+
+
 
 /* --- 右側のテキストコンテンツ --- */
 .new-story-text-content {
@@ -480,8 +507,7 @@ body, html {
     z-index: 8; 
     align-self: center; 
     
-    width: calc(100% - 250px); /* 線グループの幅を差し引いた幅 */
-    /* ★修正: 日本語名と英語名の高さを確保 (例: 30px + 20px) */
+    width: calc(100% - 250px);
     height: 60px; 
 }
 
@@ -524,6 +550,7 @@ body, html {
     
     /* 下線との干渉を防ぐため、元のマージン等は削除 */
     margin: 0; 
+    background-color: #00000000;
 }
 
 /* ----------------------------------- */
@@ -547,6 +574,7 @@ body, html {
     z-index: 15; 
     
     margin: 0; 
+    background-color: #00000000;
 }
 
 /* ----------------------------------- */
@@ -939,51 +967,59 @@ body, html {
   width: 100%; /* 中央から両端に伸びる */
 }
 
-/* ダウンロードボタン */
+
+
+
+
+
+
+
+
+
 .download-button-wrapper {
-    /* ボタンを囲むラッパー */
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin: 10vh 0 0 0;
 }
 
 .download-button {
+    position: relative;
+    width: 30%;              /* 画面の40% */
+    aspect-ratio: 16 / 9;      /* 十分な高さを確保（比率指定） */
+    min-width: 250px;
+
     display: flex;
-    background-color: #00000000; /* オレンジ色 */
-    color: white;
-    padding: 2rem 0 3rem 0;
-	justify-content: center;
-	align-items: center;
-    text-decoration: none; /* 下線を消す */
-	width: 12%; 
-    margin-left: auto;
-    margin-right: auto;
+    align-items: center;
+    justify-content: center;
 
-	height: 10rem;
-    font-size: 3vw;
-    font-weight: bold;
+    background-color: #ff8800;
+    color: #ffffff;
 
-    margin-top: 10vh;
-    margin-bottom: 3rem;
+    text-decoration: none;
+    font-size: clamp(2rem, 4vw, 4rem); /* デバイス依存しない可変サイズ */
+    font-weight: 700;
+    text-transform: uppercase;
 
-    transition: background-color 0.3s ease; /* ホバー時のアニメーション */
+    transition: background-color 0.3s ease;
 }
 
-/* 下線本体 */
+/* 下線（初期は見えない） */
 .download-button::after {
     content: "";
     position: absolute;
-    bottom: 5.5rem;          /* ← 文字の直下。近すぎたら数値を微調整 */
+    bottom: 25%;
     left: 50%;
     width: 0;
-    height: 2px;
-    background-color: #fff;
-
+    height: 0.15em;
+    background-color: #ffffff;
     transform: translateX(-50%);
-    transition: width 0.29s ease; /* ← ゆっくり出す */
+    transition: width 0.4s ease;
 }
 
-/* ホバー時 */
+
+
 .download-button:hover::after {
-    width: 15%; /* ← 文字幅くらい（調整ポイント） */
+    width: 60%; /* 文字幅に近い見た目 */
 }
 
 
@@ -1648,28 +1684,17 @@ body, html {
 
 /* --- コンテナ全体 --- */
     .new-story-container {
-        /* ★修正: 縦並び (画像上、テキスト下) に変更 */
         flex-direction: column; 
-        /* 左右のパディングを調整 */
         padding: 0 5vw; 
         padding-bottom: 0; 
         gap: 40px; 
     }
     
-    /* 補足: Flexコンテナのデフォルトの配置順序は 'row' (PC)
-       → 'column' (スマホ) に変更したため、HTMLに記述された順序通りに
-       画像 (`.new-story-image-wrapper`) が**先**（上）、
-       テキスト (`.new-story-text-content`) が**後**（下）になります。 */
-       
 
-    
-    /* --- テキストコンテンツ (下部に配置される要素) --- */
     .new-story-text-content {
         flex: 1; 
         width: 100%;
         padding: 0 5vw; 
-        
-        /* アニメーションを縦方向スライドインに統一 */
         opacity: 0;
         transform: translateY(-10%);
         transition: opacity 0.8s ease-out, transform 0.8s ease-out;
@@ -1689,7 +1714,7 @@ body, html {
     }
 
 	.new-story-image-wrapper.is-visible {
-    transform: translateX(0%); /* 元の位置へ戻る (中央から左へ) */
+    transform: translateX(0%);
     opacity: 1;
 	}
     
@@ -1726,7 +1751,7 @@ body, html {
 
 
 	.download-section-wrapper {
-        padding: 40px 15px;
+        padding: 40px 15px 0 15px;
     }
 
     .download-container {
@@ -1757,10 +1782,7 @@ body, html {
         margin-right: 10px;
     }
 
-    .download-button {
-        font-size: 1.1rem;
-        padding: 12px 30px;
-    }
+
 
 
 
