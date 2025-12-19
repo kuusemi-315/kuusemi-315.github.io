@@ -1764,6 +1764,7 @@ body, html {
 
     .download-description-top,
     .download-description-bottom {
+        font-size: 0.8rem;
         margin-bottom: 20px;
     }
     .download-description-bottom {
