@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NS23Q8CD');</script>
+<!-- End Google Tag Manager -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>kuusemi</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="header.css">
+  <link rel="stylesheet" href="news.css">
+  <link rel="icon" type="image/png" href="/images/favicon/favicon.png">
+
+      <!-- OGP -->
+<meta property="og:title" content="kuusemi">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kuusemi.net/index.html">
+<meta property="og:image" content="https://kuusemi.net/images/ogp/ogp_pj251220.png">
+<meta property="og:site_name" content="Home">
+<meta property="og:description" content="kuusemiのホームページ">
+
+<!-- Twitter(X)用 -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@kuusemi">
+<meta name="twitter:title" content="Home">
+<meta name="twitter:description" content="kuusemiのホームページ">
+</head>
+
+</head>
+
+
+<body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NS23Q8CD"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- ヘッダー読み込み -->
+<div id="header-container"></div>
+
+<script>
+  fetch("header.html")
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("header-container").innerHTML = html;
+      initHeaderMenu();
+    })
+    .catch(err => console.error("ヘッダー読み込みエラー:", err));
+</script>
+
+<script src="header.js"></script>
+
+<div id="header-spacer"></div>
+
+<main>
+
+<!-- 期間限定 -->
+
+<section class="Top">
+  <div class="top-inner">
+    <figure class="top-figure">
+      <img src="images/Release20251220.png" alt="トップ画像">
+      <a href="project-chuo.html" class="top-link" aria-label="中央西線プロジェクトへ"></a>
+    </figure>
+  </div>
+</section>
+
+<!-- 期間限定 ここまで -->
+
+    <section class="News">
+      <div class="container">
+        <h2>News</h2>
+        <p>直近8件のお知らせを表示しています。過去のお知らせは
+            <a href="news.html" class="news-link">こちら</a>
+        </p>
+        <ul id="news-list" class="news-list"></ul>
+      </div>
+    </section>
+
+
+<script>
+fetch("news-content.html")
+  .then(res => res.text())
+  .then(html => {
+    const temp = document.createElement("div");
+    temp.innerHTML = html;
+
+    // news-item 要素をすべて取得
+    const items = temp.querySelectorAll(".news-item");
+
+    // 上位8件を index.html に追加
+    const list = document.getElementById("news-list");
+    items.forEach((item, i) => {
+      if (i < 8) list.appendChild(item.cloneNode(true));
+    });
+  })
+  .catch(err => console.error("News読み込みエラー:", err));
+</script>
+
+
+<!-- フッター読み込み領域 -->
+<div id="footer-container"></div>
+
+<script>
+  fetch("footer.html")
+    .then(res => res.text())
+    .then(html => document.getElementById("footer-container").innerHTML = html)
+    .catch(err => console.error("フッター読み込みエラー:", err));
+</script>
+</body>
+</html>

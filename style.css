@@ -1,0 +1,368 @@
+*{
+    padding: 0;
+    margin: 0;
+
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden; /* 横方向のスクロールを無効化 */
+}
+
+h1{
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+h2{
+    font-size: 36px;
+    margin-bottom: 20px;
+    
+}
+
+h3{
+    font-size: 32px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.container{
+    width: 90%;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+#header-spacer {
+  width: 100%;
+  height: 140px;
+  pointer-events: none;
+}
+
+/* 　　　　　Top画像　ここから　　　　　 */
+
+.Top {
+  width: 100%;
+  display: flex;
+  justify-content: center; /* 中央寄せ */
+  padding-top: 20px;
+}
+
+/* 実際にサイズ制御するラッパー */
+.top-inner {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* 16:9 を維持する本体 */
+.top-figure {
+  position: relative;
+  width: 100%;
+  max-width: calc((100vh - 180px) * 16 / 9); /* 高さ基準で最大幅決定 */
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  transition: transform 0.4s ease;
+}
+
+/* 画像 */
+.top-figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* クリック領域（画像の上に被せる） */
+.top-link {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+/* ホバー時拡大 */
+.top-figure:hover {
+  transform: scale(1.05);
+}
+
+/* 画面が縦に狭い場合の安全策 */
+@media (max-height: 700px) {
+  .top-figure {
+    max-width: 100%;
+  }
+}
+
+
+
+/* ポップアップ本体 */
+.main-overlay {
+  position: absolute;
+  top: 55%;
+  right: 8%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 60px 80px;
+  border-radius: 12px;
+  width: 40%;
+  box-sizing: border-box;
+  font-family: "游ゴシック", "Yu Gothic", sans-serif;
+  text-align: center; /* ← ここを追加 */
+}
+
+
+/* オーバーレイ 基本 */
+.main-overlay {
+  position: absolute;
+  top: 55%;
+  right: 8%;
+  transform: translateY(-50%);
+  background: rgba(255, 136, 0, 0.88);
+  color: white;
+  padding: 60px 80px;
+  border-radius: 6px;
+  width: 40%;
+  max-height: 60vh; /* 縦長を抑える */
+  box-sizing: border-box;
+  font-family: "游ゴシック", "Yu Gothic", sans-serif;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* スクロールなし */
+}
+
+/* オーバーレイ タイトル */
+.main-overlay h2 {
+  font-size: 2.7rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+  word-wrap: break-word;
+}
+
+/* オーバーレイ テキスト */
+.main-overlay p {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  word-wrap: break-word;
+}
+
+/* オーバーレイ ボタン */
+.main-btn {
+  display: inline-block;
+  padding: 14px 40px;
+  background: #ffffff;
+  color: #000;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: transform 0.2s ease, background 0.3s ease, color 0.3s ease;
+}
+
+/* ボタン拡大 アニメーション */
+.main-btn:hover {
+  transform: scale(1.05);
+}
+
+/* タブレット・中サイズ対応 */
+@media (max-width: 1099px) {
+  .main-overlay {
+    left: 50%;
+    right: auto;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    max-height: 50vh;
+    padding: 30px;
+    margin-top: 40px;
+  }
+
+  .main-overlay h2 {
+    font-size: 2rem;
+  }
+
+  .main-overlay p {
+    font-size: 1rem;
+  }
+
+  .main-btn {
+    padding: 12px 30px;
+    font-size: 1rem;
+  }
+
+  .Top {
+  position: relative;
+  }
+
+  #header-spacer {
+  width: 100%;
+  height: 140px;
+  pointer-events: none;
+}
+
+}
+
+/* オーバーレイ　スマホ対応 */
+@media (max-width: 850px) {
+  .main-overlay {
+    width: 85%;
+    max-height: 60vh;
+    padding: 20px;
+  }
+
+  .main-overlay h2 {
+    font-size: 1.5rem;
+  }
+
+  .main-overlay p {
+    font-size: 0.9rem;
+  }
+
+  .main-btn {
+    padding: 10px 25px;
+    font-size: 0.9rem;
+  }
+
+  .Top {
+  position: relative;
+  }
+
+  #header-spacer {
+  width: 100%;
+  height: 80px;
+  pointer-events: none;
+}
+
+}
+
+/*　　　　　 オーバーレイ ここまで　　　　　 */
+
+
+/* 　　　　　News ここから　　　　　 */
+
+main .News{
+    background-color: white;
+    padding: 30px;
+    padding-top: 5%;
+    text-align: left;
+}
+
+/* News h2タイトル */
+.News h2 {
+  position: relative;
+  width: 1500px;          /* 横幅を固定 */
+  max-width: 100%;       /* 画面幅が狭いときは自動で縮む */
+  padding-bottom: 10px;  /* 線との余白 */
+  font-family: "游ゴシック", "Yu Gothic", sans-serif;
+  font-size: 36px;
+  text-align: left;      /* 左寄せ */
+}
+
+/* 文字下 色付き下線 */
+.News h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;             /* 文字の下に線を表示 */
+  width: 100%;           /* h2の幅に合わせて線を引く */
+  height: 4px;
+  background-color: #e38cfe;
+}
+
+/* 直近8件 基本 */
+.News p {
+    font-family: "游ゴシック", "Yu Gothic", sans-serif;
+    font-size: 20px;
+    padding-bottom: 2%;
+}
+
+/* 直近8件 タブレット対応 */
+@media (max-width: 1099px) {
+    .News p {
+    font-family: "游ゴシック", "Yu Gothic", sans-serif;
+    font-size: 18px;
+    padding-bottom: 2%;
+  }
+}
+
+/* 直近8件 スマホ対応 */
+@media (max-width: 599px) {
+    .News p {
+    font-family: "游ゴシック", "Yu Gothic", sans-serif;
+    font-size: 16px;
+    padding-bottom: 2%;
+  }
+}
+
+.news-link {
+  position: relative;
+  color: #e38cfe;         /* 下線と同系色で統一 */
+  font-weight: 500;       /* 少し強調 */
+  text-decoration: none;  /* デフォルトの下線を消す */
+  transition: color 0.2s; /* ホバー時の色変化 */
+}
+
+/* 下線アニメーション（中央から左右に広がる） */
+.news-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -2px;            /* 文字の少し下に線を引く */
+  width: 0;
+  height: 1px;
+  background-color: #e38cfe;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.news-link:hover::after {
+  width: 100%; /* 中央から両端に伸びる */
+}
+
+/* 　　　　　News ここまで　　　　　 */
+
+
+
+main .About{
+    background-color: white;
+    padding: 30px;
+    text-align: left;
+}
+main .Date{
+    background-color: black;
+    color: white;
+    padding: 30px;
+    text-align: left;
+}
+
+main .Date table{
+    margin: 0 auto;
+}
+main .Date table td{
+    padding: 10px 20px;
+}
+aside{
+    background-color: white;
+    padding: 30px;
+    text-align: center;
+}
+aside p{
+    margin-bottom: 20px;
+}
+aside figure img{
+    width: 150px;
+}
+aside .btn {
+    background-color: blueviolet;
+    display: inline-block;
+    padding: 20px 80px;
+    border: 5px solid black;
+    border-radius: 100px;
+    color: black;
+    text-decoration: none;
+}
+aside .btn:hover{
+    background-color: red;
+}
