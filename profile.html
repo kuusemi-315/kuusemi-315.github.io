@@ -1,135 +1,376 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
 
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-NS23Q8CD');</script>
-<!-- End Google Tag Manager -->
+<head>
+  <script>
+    (function(w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({
+        'gtm.start': new Date().getTime(),
+        event: 'gtm.js'
+      });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-NS23Q8CD');
+  </script>
+
+  <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
+  <script src="https://unpkg.com/aframe-orbit-controls@1.2.0/dist/aframe-orbit-controls.min.js"></script>
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Profile | kuusemi</title>
+  <link rel="stylesheet" href="support.css">
   <link rel="stylesheet" href="profile.css">
   <link rel="icon" type="image/png" href="/images/favicon/favicon.png">
 
-              <!-- OGP -->
-<meta property="og:title" content="kuusemi">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://kuusemi.net/profile.html">
-<meta property="og:image" content="https://kuusemi.net/images/ogp/ogp.png">
-<meta property="og:site_name" content="Profile">
-<meta property="og:description" content="kuusemiのプロフィール。">
+  <meta property="og:title" content="kuusemi">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://kuusemi.net/profile.html">
+  <meta property="og:image" content="https://kuusemi.net/images/ogp/ogp.png">
+  <meta property="og:site_name" content="Profile">
+  <meta property="og:description" content="kuusemiのプロフィール。">
 
-<!-- Twitter(X)用 -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@kuusemi">
-<meta name="twitter:title" content="Profile">
-<meta name="twitter:description" content="kuusemiのプロフィール。">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@kuusemi">
+  <meta name="twitter:title" content="Profile">
+  <meta name="twitter:description" content="kuusemiのプロフィール。">
 
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDPML6YFDR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-LDPML6YFDR');
+  </script>
 </head>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LDPML6YFDR"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-LDPML6YFDR');
-</script>
-
 <body>
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NS23Q8CD" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
 
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NS23Q8CD"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+  <div id="header-container"></div>
+  <script>
+    fetch("header.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("header-container").innerHTML = html;
+        if (typeof initHeaderMenu === 'function') initHeaderMenu();
+      })
+      .catch(err => console.error("ヘッダー読み込みエラー:", err));
+  </script>
+  <script src="header.js"></script>
 
+  <div id="header-spacer"></div>
 
-<!-- ヘッダー読み込み -->
-<div id="header-container"></div>
-
-<script>
-  fetch("header.html")
-    .then(res => res.text())
-    .then(html => {
-      document.getElementById("header-container").innerHTML = html;
-      initHeaderMenu();
-    })
-    .catch(err => console.error("ヘッダー読み込みエラー:", err));
-</script>
-
-<script src="header.js"></script>
-  
-<div id="header-spacer"></div>
-
-
-  <div class="container">
-    <header>
+  <main>
+    <div class="container">
+      <header>
         <h2 class="h2-title">Profile</h2>
+      </header>
+    </div>
+
+    <section class="AboutMe">
+      <div class="container">
+        <header>
+          <h3>About Me</h3>
+        </header>
+
+        <div class="profile-container">
+          <div class="profile-left">
+            <figure>
+              <img src="images/icon.jpg" alt="くーせみのアイコン">
+            </figure>
+          </div>
+
+          <div class="profile-right">
+            <p class="profile-name">くーせみ / kuusemi</p>
+            <p class="profile-bio">街が好き、モデリング屋さん</p>
+            <p class="profile-bio">BVE 中央西線 Project 制作者。</p>
+
+            <div class="profile-sns">
+              <ul>
+                <li class="x">
+                  <a href="https://x.com/kuusemi" target="_blank">
+                    <img src="icons/logo-black.png" alt="X">
+                    <span class="x-text">Twitter</span>
+                  </a>
+                </li>
+                <li class="youtube">
+                  <a href="https://www.youtube.com/@kuusemi" target="_blank">
+                    <img src="icons/youtube_social_icon_dark.png" alt="YouTube">
+                    <span class="youtube-text">YouTube</span>
+                  </a>
+                </li>
+                <li>
+                  <a data-ofuse-widget-button href="https://ofuse.me/o?uid=138307" data-ofuse-id="138307" data-ofuse-size="large" data-ofuse-style="rectangle">OFUSEで応援を送る</a>
+                  <script async src="https://ofuse.me/assets/platform/widget.js" charset="utf-8"></script>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="Works">
+      <div class="container">
+        <header>
+          <h3>3D Archives</h3>
+        </header>
+
+    <header>
+      <p>これまでに制作した3Dモデルの一部を、このページに集めてみました。<br><br>
+        各モデルはブラウザ上で360度自由な角度から鑑賞できるほか、全画面表示にも対応しています。<br>
+        さらに、AR（拡張現実）機能に対応しており、スマートフォン等のデバイスを用いることで、あなたの目の前の空間に実物大のモデルを投影できます。<br><br>
+        まるで模型を手に取るような感覚で、ひとつひとつの造形に込めたこだわりを楽しんでもらえたら嬉しいです。
+      </p>
     </header>
-  </div>
-  
+        <header>
+          <h4>&nbsp&nbspJR東海 383系</h4>
+        </header>
+        <div class="work-viewer-row">
+          <div class="work-viewer">
+            <model-viewer src="models/383.gltf" alt="JR東海 383系" ar ar-modes="webxr scene-viewer quick-look" camera-controls touch-action="pan-y" shadow-intensity="1" interpolation-decay="200" camera-orbit="0deg 75deg 105%" auto-rotate rotation-per-second="30deg" auto-rotate-delay="3000" style="width: 100%; height: 100%; background-color: #f0f0f0;">
+              <button class="fullscreen-btn" onclick="toggleFullscreen(this)">全画面で見る</button>
+            </model-viewer>
+          </div>
+          <div class="work-description">
+            <p class="work-text">
+              BVE 中央西線 シナリオの一部として制作しました。<br><br>
+              このモデルが初の車両ストラクチャーの制作になりました。<br>
+              丸みを帯びた貫通型先頭車、流線形の非貫通型先頭車、複雑な扉位置などに悩まされましたが、満足いくクオリティで制作することができました。
+            </p>
+            <p class="work-text">
+              Created in 2025.06
+            </p>
+            <a href="data.html" class="contact-dm-button">ダウンロードページへ</a>
+          </div>
+        </div>
 
-  <!-- プロフィール本体 -->
-  <div class="profile-container">
-    <div class="profile-left">
-      <figure>
-        <img src="images/icon.jpg" alt="くーせみのアイコン">
-      </figure>
-    </div>
-
-    <div class="profile-right">
-      <h3>くーせみ / kuusemi</h3>
-      <p>
-        BVE 中央西線 Project 制作者。
-      </p>
-       <p>
-        人間の営みが好き。
-      </p>  
-       <p>
-      </p>  
-      <p>
-        冬より夏が好き。
-      </p>
-
-      <!-- SNSリンク -->
-<!-- SNSリンク -->
-<div class="profile-sns">
-  <ul>
-<li class="x">
-  <a href="https://x.com/kuusemi" target="_blank">
-    <img src="icons/logo-black.png" alt="X">
-    <span class="x-text">Twitter</span>
-  </a>
-</li>
-    <li class="youtube">
-      <a href="https://www.youtube.com/@kuusemi" target="_blank">
-        <img src="icons/youtube_social_icon_dark.png" alt="YouTube">
-        <span class="youtube-text">YouTube</span>
-      </a>
-    </li>
-
-    <a data-ofuse-widget-button href="https://ofuse.me/o?uid=138307" data-ofuse-id="138307" data-ofuse-size="large" data-ofuse-style="rectangle">OFUSEで応援を送る</a><script async src="https://ofuse.me/assets/platform/widget.js" charset="utf-8"></script>
-
-  </ul>
+        <header>
+          <h4>&nbsp&nbspJR東海 313系</h4>
+        </header>
+        <div class="work-viewer-row">
+          <div class="work-viewer">
+            <model-viewer src="models/313.gltf" alt="JR東海 313系" ar ar-modes="webxr scene-viewer quick-look" camera-controls touch-action="pan-y" shadow-intensity="1" interpolation-decay="200" camera-orbit="0deg 75deg 105%" auto-rotate rotation-per-second="30deg" auto-rotate-delay="3000" style="width: 100%; height: 100%; background-color: #f0f0f0;">
+              <button class="fullscreen-btn" onclick="toggleFullscreen(this)">全画面で見る</button>
+            </model-viewer>
+          </div>
+          <div class="work-description">
+            <p class="work-text">
+              BVE 中央西線 シナリオの一部として制作しました。<br><br>
+              Projectが終盤に差し掛かっていたこともあり、短期間で仕上げる必要がありました。<br>
+              資料も少なかったため、全長、全幅、全高のみをもとに、テクスチャから前面形状や各パーツの位置を割り出して制作しました。
+            </p>
+            <p class="work-text">
+              Created in 2025.11
+            </p>
+            <a href="data.html" class="contact-dm-button">ダウンロードページへ</a>
+          </div>
+        </div>
 
 
-</div>
-    </div>
-  </div>
+        <header>
+          <h4>&nbsp&nbsp名鉄 4000系</h4>
+        </header>
+        <div class="work-viewer-row">
+          <div class="work-viewer">
+            <model-viewer src="models/mei_4000.gltf" alt="名鉄 4000系" ar ar-modes="webxr scene-viewer quick-look" camera-controls touch-action="pan-y" shadow-intensity="1" interpolation-decay="200" camera-orbit="0deg 75deg 105%" auto-rotate rotation-per-second="30deg" auto-rotate-delay="3000" style="width: 100%; height: 100%; background-color: #f0f0f0;">
+              <button class="fullscreen-btn" onclick="toggleFullscreen(this)">全画面で見る</button>
+            </model-viewer>
+          </div>
+          <div class="work-description">
+            <p class="work-text">
+              BVE 中央西線 シナリオの一部として制作しました。<br><br>
+              Projectが終盤に差し掛かっており、こちらも313系と同様で短期間で仕上げる必要がありました。<br>
+              中央西線では大曽根ですれ違うだけの列車ですが、いつか本当の舞台で日の目を見られる、その日のために...
+            </p>
+            <p class="work-text">
+              Created in 2025.10
+            </p>
+            <a href="data.html" class="contact-dm-button">ダウンロードページへ</a>
+          </div>
+        </div>
 
-  <!-- フッター読み込み -->
+
+        <header>
+          <h4>&nbsp&nbsp15階建てのマンション 1</h4>
+        </header>
+        <div class="work-viewer-row">
+          <div class="work-viewer">
+            <model-viewer src="models/km02.gltf" alt="15階建てのマンション 1" ar ar-modes="webxr scene-viewer quick-look" camera-controls touch-action="pan-y" shadow-intensity="1" interpolation-decay="200" camera-orbit="0deg 75deg 105%" auto-rotate rotation-per-second="30deg" auto-rotate-delay="3000" style="width: 100%; height: 100%; background-color: #f0f0f0;">
+              <button class="fullscreen-btn" onclick="toggleFullscreen(this)">全画面で見る</button>
+            </model-viewer>
+          </div>
+          <div class="work-description">
+            <p class="work-text">
+              BVE 中央西線 シナリオの一部として制作しました。<br><br>
+              ベランダ内部や共用通路、階段の中まで造形している本格的なモデルです。<br>
+              階段部分が破綻しないように、繰り返しに対応させるのは骨が折れる作業です…
+            </p>
+            <p class="work-text">
+              Created in 2024.08
+            </p>
+          </div>
+        </div>
+
+        <header>
+          <h4>&nbsp&nbsp15階建てのマンション 2</h4>
+        </header>
+        <div class="work-viewer-row">
+          <div class="work-viewer">
+            <model-viewer src="models/km11.gltf" alt="15階建てのマンション 2" ar ar-modes="webxr scene-viewer quick-look" camera-controls touch-action="pan-y" shadow-intensity="1" interpolation-decay="200" camera-orbit="0deg 75deg 105%" auto-rotate rotation-per-second="30deg" auto-rotate-delay="3000" style="width: 100%; height: 100%; background-color: #f0f0f0;">
+              <button class="fullscreen-btn" onclick="toggleFullscreen(this)">全画面で見る</button>
+            </model-viewer>
+          </div>
+          <div class="work-description">
+            <p class="work-text">
+              BVE 中央西線 シナリオの一部として制作しました。<br><br>
+              最上階には装飾があり、夜間には照明が点灯するように制作しました。<br>
+              こちらも共用通路、階段造形しましたが、シナリオでの登場は数回程度です。
+            </p>
+            <p class="work-text">
+              Created in 2024.08
+            </p>
+          </div>
+        </div>
+
+        <header>
+          <h4>&nbsp&nbspコンビニエンスストア</h4>
+        </header>
+        <div class="work-viewer-row">
+          <div class="work-viewer">
+            <model-viewer src="models/CVS.gltf" alt="コンビニエンスストア" ar ar-modes="webxr scene-viewer quick-look" camera-controls touch-action="pan-y" shadow-intensity="1" interpolation-decay="200" camera-orbit="0deg 75deg 105%" auto-rotate rotation-per-second="30deg" auto-rotate-delay="3000" style="width: 100%; height: 100%; background-color: #f0f0f0;">
+              <button class="fullscreen-btn" onclick="toggleFullscreen(this)">全画面で見る</button>
+            </model-viewer>
+          </div>
+          <div class="work-description">
+            <p class="work-text">
+              BVE 中央西線 シナリオの一部として制作しました。<br><br>
+              高架区間から非常によく見える店舗だったため、駐車場の路面標示まで制作しています。<br>
+              実はテクスチャに私が写り込んでおり、一部にぼかしがかかっています。
+            </p>
+            <p class="work-text">
+              Created in 2024.08
+            </p>
+          </div>
+        </div>
+
+
+        <header>
+          <h4>&nbsp&nbspショッピングモール</h4>
+        </header>
+        <div class="work-viewer-row">
+          <div class="work-viewer">
+            <model-viewer src="models/sinmori mall.gltf" alt="ショッピングモール" ar ar-modes="webxr scene-viewer quick-look" camera-controls touch-action="pan-y" shadow-intensity="1" interpolation-decay="200" camera-orbit="0deg 75deg 105%" auto-rotate rotation-per-second="30deg" auto-rotate-delay="3000" style="width: 100%; height: 100%; background-color: #f0f0f0;">
+              <button class="fullscreen-btn" onclick="toggleFullscreen(this)">全画面で見る</button>
+            </model-viewer>
+          </div>
+          <div class="work-description">
+            <p class="work-text">
+              BVE 中央西線 シナリオの一部として制作しました。<br><br>
+              立体駐車場のスロープ部分においては、テクスチャとモデルとの間で傾斜に差が出ないように、細心の注意を払いました。<br>
+              珍しく夜景非対応ですが、実店舗も21時過ぎには閉店してしまうので、誤差です。
+            </p>
+            <p class="work-text">
+              Created in 2023.06
+            </p>
+          </div>
+        </div>
+
+
+        <header>
+          <h4>&nbsp&nbspふそう エアロスター MP38</h4>
+        </header>
+        <div class="work-viewer-row">
+          <div class="work-viewer">
+            <model-viewer src="models/AS NF-520.gltf" alt="ふそう エアロスター MP38" ar ar-modes="webxr scene-viewer quick-look" camera-controls touch-action="pan-y" shadow-intensity="1" interpolation-decay="200" camera-orbit="0deg 75deg 105%" auto-rotate rotation-per-second="30deg" auto-rotate-delay="3000" style="width: 100%; height: 100%; background-color: #f0f0f0;">
+              <button class="fullscreen-btn" onclick="toggleFullscreen(this)">全画面で見る</button>
+            </model-viewer>
+          </div>
+          <div class="work-description">
+            <p class="work-text">
+              中央西線でも使用できますが、こちらは趣味で制作しました。<br><br>
+              金山駅で見かけた、当時最新鋭の白幕MP38がかっこよくて、作りたくなりました。<br>
+              やけにタイヤ部分がリアルだったので、一部の部品は再就職先を見つけました。
+            </p>
+            <p class="work-text">
+              Created in 2025.04
+            </p>
+          </div>
+        </div>
+
+
+      </div>
+    </section>
+  </main>
+
   <div id="footer-container"></div>
+
   <script>
     fetch("footer.html")
       .then(res => res.text())
       .then(html => document.getElementById("footer-container").innerHTML = html)
       .catch(err => console.error("フッター読み込みエラー:", err));
   </script>
+
+  <script>
+    // 1. 全画面表示の切り替え（クリックしたボタンの親要素を対象にする）
+// 1. 全画面表示の切り替え
+function toggleFullscreen(buttonElement) {
+  const viewerContainer = buttonElement.closest('.work-viewer');
+  
+  if (!document.fullscreenElement) {
+    viewerContainer.requestFullscreen().catch(err => {
+      alert(`全画面表示に失敗しました: ${err.message}`);
+    });
+  } else {
+    document.exitFullscreen();
+  }
+}
+
+// 2. フルスクリーン状態を監視してボタンの文字を書き換える
+document.addEventListener('fullscreenchange', () => {
+  const fullElem = document.fullscreenElement;
+  // すべてのフルスクリーンボタンを取得
+  const buttons = document.querySelectorAll('.fullscreen-btn');
+  
+  buttons.forEach(btn => {
+    if (fullElem) {
+      // 全画面表示中のとき
+      btn.textContent = "全画面を終了する";
+      btn.classList.add('is-active'); // 必要ならスタイル変更用にクラス付与
+    } else {
+      // 通常表示のとき
+      btn.textContent = "全画面で見る";
+      btn.classList.remove('is-active');
+    }
+  });
+});
+
+    // 2. すべての model-viewer にジャイロ（傾き）を連動させる
+    window.addEventListener('deviceorientation', (e) => {
+      if (!e.gamma || !e.beta) return;
+      
+      const viewers = document.querySelectorAll('model-viewer');
+      viewers.forEach(mv => {
+        const orbitX = e.gamma * 0.4;
+        const orbitY = 75 + (e.beta * 0.1);
+        mv.cameraOrbit = `${orbitX}deg ${orbitY}deg auto`;
+      });
+    }, true);
+  </script>
+
 </body>
+
 </html>

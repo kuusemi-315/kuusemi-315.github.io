@@ -1,122 +1,102 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-NS23Q8CD');</script>
-<!-- End Google Tag Manager -->
-
-
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-NS23Q8CD');</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Data | kuusemi</title>
   <link rel="stylesheet" href="support.css">
   <link rel="icon" type="image/png" href="/images/favicon/favicon.png">
 
-    <!-- OGP -->
-<meta property="og:title" content="kuusemi">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://kuusemi.net/data.html">
-<meta property="og:image" content="https://kuusemi.net/images/ogp/ogp.png">
-<meta property="og:site_name" content="Data">
-<meta property="og:description" content="BVEで使える素材データを公開中。">
+  <meta property="og:title" content="kuusemi">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://kuusemi.net/data.html">
+  <meta property="og:image" content="https://kuusemi.net/images/ogp/ogp.png">
+  <meta property="og:site_name" content="Data">
+  <meta property="og:description" content="BVEで使える素材データを公開中。">
 
-<!-- Twitter(X)用 -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@kuusemi">
-<meta name="twitter:title" content="Data">
-<meta name="twitter:description" content="BVEで使える素材データを公開中。">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@kuusemi">
+  <meta name="twitter:title" content="Data">
+  <meta name="twitter:description" content="BVEで使える素材データを公開中。">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDPML6YFDR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-LDPML6YFDR');
+  </script>
 </head>
-
-
-</head>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LDPML6YFDR"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-LDPML6YFDR');
-</script>
-
 
 <body>
-
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NS23Q8CD"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
- 
-<!-- ヘッダー読み込み -->
-<div id="header-container"></div>
-
-<script>
-  fetch("header.html")
-    .then(res => res.text())
-    .then(html => {
-      document.getElementById("header-container").innerHTML = html;
-      initHeaderMenu();
-    })
-    .catch(err => console.error("ヘッダー読み込みエラー:", err));
-</script>
-
-<script src="header.js"></script>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NS23Q8CD"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <div id="header-container"></div>
+  <script>
+    fetch("header.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("header-container").innerHTML = html;
+        if (typeof initHeaderMenu === 'function') initHeaderMenu();
+      })
+      .catch(err => console.error("ヘッダー読み込みエラー:", err));
+  </script>
+  <script src="header.js"></script>
   
-<div id="header-spacer"></div>
+  <div id="header-spacer"></div>
 
-<main>
-
-  <div class="container">
-    <header>
-        <h2 class="h2-titele">Data</h2>
-    </header>
-  </div>
-<main>
-<section class="VehicleStructure">
-  <div class="container">
-    <header>
-      <h3>車両ストラクチャー</h3>
-    </header>
-    <header>
-      <h4>&nbsp&nbsp383系 ストラクチャー</h4>
-      <p>特急しなの号、ホームライナーなどで活躍する、383系の車両ストラクチャーです。<br>他列車進行方向は、神戸向きを基準としています。</p>
-    </header>
-    <div class="image-wrapper">
-        <img src="images/img383.png" alt="383系ストラクチャー">
-        <a href="https://drive.google.com/file/d/12ro0TMdThlvA8JpRW_1udjoji-BUpRDF/view?usp=sharing" id="data_383str" target="_blank" class="overlay">
-        <span>ダウンロード →</span>
-     </a>
+  <main>
+    <div class="container">
+      <header>
+          <h2 class="h2-titele">Data</h2>
+      </header>
     </div>
 
-    <header>
-      <h4>&nbsp&nbsp313系 ストラクチャー</h4>
-      <p>JR東海管内各線で活躍する、313系の車両ストラクチャーです。<br>他列車進行方向は、神戸向きを基準としています。</p>
-    </header>
-    <div class="image-wrapper">
-        <img src="images/img313.png" alt="313系ストラクチャー">
-        <a href="https://drive.google.com/file/d/1BSZ16TN1ToHdivUC-ppfuSL4YrOH63AL/view?usp=sharing" id="data_313str" target="_blank" class="overlay">
-        <span>ダウンロード →</span>
-     </a>
-    </div>
+    <section class="VehicleStructure">
+      <div class="container">
+        <header>
+          <h3>車両ストラクチャー</h3>
+        </header>
 
         <header>
-      <h4>&nbsp&nbsp名鉄4000系 ストラクチャー</h4>
-      <p>名鉄瀬戸線で活躍する、4000系の車両ストラクチャーです。<br>他列車進行方向は、栄町向きを基準としています。</p>
-    </header>
-    <div class="image-wrapper">
-        <img src="images/img4000.png" alt="313系ストラクチャー">
-        <a href="https://drive.google.com/file/d/14iBXFz13g7B_mn2gsieTWvxxzdBfajJ1/view?usp=sharing" id="data_mei4000str" target="_blank" class="overlay">
-        <span>ダウンロード →</span>
-     </a>
-    </div>
+          <h4>383系 ストラクチャー</h4>
+          <p>特急しなの号、ホームライナーなどで活躍する、383系の車両ストラクチャーです。<br>他列車進行方向は、神戸向きを基準としています。</p>
+        </header>
+        <div class="image-wrapper">
+            <img src="images/img383.png" alt="383系ストラクチャー">
+            <a href="https://drive.google.com/file/d/12ro0TMdThlvA8JpRW_1udjoji-BUpRDF/view?usp=sharing" id="data_383str" target="_blank" class="overlay">
+            <span>ダウンロード →</span>
+          </a>
+        </div>
 
-    <header>
+        <header>
+          <h4>313系 ストラクチャー</h4>
+          <p>JR東海管内各線で活躍する、313系の車両ストラクチャーです。<br>他列車進行方向は、神戸向きを基準としています。</p>
+        </header>
+        <div class="image-wrapper">
+            <img src="images/img313.png" alt="313系ストラクチャー">
+            <a href="https://drive.google.com/file/d/1BSZ16TN1ToHdivUC-ppfuSL4YrOH63AL/view?usp=sharing" id="data_313str" target="_blank" class="overlay">
+            <span>ダウンロード →</span>
+          </a>
+        </div>
+
+        <header>
+          <h4>名鉄4000系 ストラクチャー</h4>
+          <p>名鉄瀬戸線で活躍する、4000系の車両ストラクチャーです。<br>他列車進行方向は、栄町向きを基準としています。</p>
+        </header>
+        <div class="image-wrapper">
+            <img src="images/img4000.png" alt="名鉄4000系ストラクチャー">
+            <a href="https://drive.google.com/file/d/14iBXFz13g7B_mn2gsieTWvxxzdBfajJ1/view?usp=sharing" id="data_mei4000str" target="_blank" class="overlay">
+            <span>ダウンロード →</span>
+          </a>
+        </div>
+
+<header>
       <h3><br>沿線ストラクチャー</h3>
     </header>
     <header>
@@ -254,20 +234,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span>ダウンロード →</span>
      </a>
     </div>
-  </div>
-</section>
-  <script>
-document.addEventListener("DOMContentLoaded", function() {
-  document.querySelectorAll("img").forEach(img => {
-    img.onerror = () => {
-      img.onerror = null;
-      img.src = "images/noimage.png";
-    };
-  });
-});
-</script>
+      </div>
+    </section>
+  </main> <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      document.querySelectorAll("img").forEach(img => {
+        img.onerror = () => {
+          img.onerror = null;
+          img.src = "images/noimage.png";
+        };
+      });
+    });
+  </script>
 
-    <!-- フッター読み込み -->
   <div id="footer-container"></div>
   <script>
     fetch("footer.html")
